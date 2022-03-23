@@ -1,0 +1,41 @@
+{
+  "name": "safe-guard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rollup.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sambacha/safe-result.git"
+  },
+  "keywords": [],
+  "author": "sam bacha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sambacha/safe-result/issues"
+  },
+  "homepage": "https://github.com/sambacha/safe-result#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.26",
+    "gts": "^3.1.0",
+    "rollup": "^2.70.1",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "@ethersproject/abstract-provider": "^5.6.0",
+    "@ethersproject/address": "^5.6.0",
+    "tiny-invariant": "^1.2.0",
+    "tiny-warning": "^1.0.3"
+  }
+}
