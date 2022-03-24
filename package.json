@@ -2,16 +2,23 @@
   "name": "safe-guard",
   "version": "1.0.0",
   "description": "",
-  "main": "rollup.config.js",
+  "sideEffects": false,
+  "main": "./umd/index.cjs",
+  "module": "./es/index.js",
+  "typings": "./es/",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./umd/index.cjs"
+    },
+    "./es": {
+      "import": "./es/index.js",
+      "require": "./umd/index.cjs"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "gts lint",
-    "clean": "gts clean",
-    "compile": "tsc",
-    "fix": "gts fix",
-    "prepare": "npm run compile",
-    "pretest": "npm run compile",
-    "posttest": "npm run lint"
+    "compile": "tsc"
   },
   "repository": {
     "type": "git",
@@ -25,8 +32,9 @@
   },
   "homepage": "https://github.com/sambacha/safe-result#readme",
   "devDependencies": {
+    "@types/mocha": "^9.1.0",
     "@types/node": "^16.11.26",
-    "gts": "^3.1.0",
+    "mocha": "^9.2.2",
     "rollup": "^2.70.1",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-typescript2": "^0.31.2",

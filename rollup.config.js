@@ -1,11 +1,11 @@
 
-   
+
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import typescript from 'rollup-plugin-typescript2';
 
 const pkg = require('./package.json');
 
-const libraryName = 'mycrypto-nano-result';
+const libraryName = 'safe-result';
 
 /**
  * Include all of the dependencies here to exclude all node modules from the build
@@ -43,7 +43,7 @@ export default {
     // Compile TypeScript files
     typescript({
       useTsconfigDeclarationDir: true,
-      tsconfig: './tsconfig-build.json',
+      tsconfig: './tsconfig.json',
     }),
 
     // Resolve source maps to the original source

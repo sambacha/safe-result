@@ -1,11 +1,20 @@
 {
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "build"
+    "rootDir": "./src",
+    "outDir": "./build",
+    "lib": ["ES2018", "DOM", "DOM.Iterable"],
+    "target": "ES2018",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "composite": true,
+    "tsBuildInfoFile": "./",
   },
   "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ]
+    "src/**/*.ts"
+  ],
+  "exclude": ["node_modules", "src/**/*.test.ts", "src/**/*.spec.ts", "test/**/*.ts"]
 }
