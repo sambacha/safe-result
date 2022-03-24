@@ -43,7 +43,9 @@
   },
   "dependencies": {
     "@ethersproject/abstract-provider": "^5.6.0",
+    "@ethersproject/abstract-signer": "^5.6.0",
     "@ethersproject/address": "^5.6.0",
+    "@ethersproject/properties": "^5.6.0",
     "tiny-invariant": "^1.2.0",
     "tiny-warning": "^1.0.3"
   }
