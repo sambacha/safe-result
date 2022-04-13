@@ -1,4 +1,5 @@
-**
+/**
+ * @fn isHexPrefixed
  * Returns a `Boolean` on whether or not the a `String` starts with '0x'
  * @param str the string input value
  * @return a boolean if it is or is not hex prefixed
@@ -13,6 +14,7 @@ export function isHexPrefixed(str: string): boolean {
 }
 
 /**
+ * @const stripHexPrefix
  * Removes '0x' from a given `String` if present
  * @param str the string value
  * @returns the string without 0x prefix
@@ -25,6 +27,7 @@ export const stripHexPrefix = (str: string): string => {
 }
 
 /**
+ * @fn padToEven
  * Pads a `String` to have an even length
  * @param value
  * @return output
