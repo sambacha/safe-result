@@ -1,18 +1,39 @@
-__pycache__
-.history
-.hypothesis/
-build/
-reports/
-node_modules
+# -*- mode: gitignore; -*-
+/out
+/dist 
+cache/
+artifacts
+coverage/
+
+## General ##
+*~
+\#*\#
+/**/build
 .DS_Store
+node_modules
+tmp/
+_dev/
+coverage/
 
-*.log
+## Binary ##
 *.zip
-*.tgz
-*.tar.gz
 *.tar
+*.tar.gz
+*.tgz
 
+## IDE ##
+.secret
+.idea/*
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+## typescript ##
 .cache/
 cache/
 artifacts/
