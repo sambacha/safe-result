@@ -12,7 +12,7 @@ describe('Result', () => {
   it('chained Okay value is evaluated correctly', () => {
     expect(
       getOk(3, '4')
-        .chain(v => Ok(v + 3))
+        .chain((v) => Ok(v + 3))
         .okOrElse(100),
     ).toBe(6);
   });
@@ -20,7 +20,7 @@ describe('Result', () => {
   it('errChained Err value is evaluated correctly', () => {
     expect(
       getErr(3, '4')
-        .errChain(v => Err<number, number>(7))
+        .errChain((v) => Err<number, number>(7))
         .errOrElse(100),
     ).toBe(7);
   });
@@ -28,7 +28,7 @@ describe('Result', () => {
   it('chained Err value is evaluated correctly', () => {
     expect(
       getErr(3, '4')
-        .chain(v => Ok(1))
+        .chain((v) => Ok(1))
         .okOrElse(100),
     ).toBe(100);
   });
@@ -36,24 +36,24 @@ describe('Result', () => {
   it('chained Err value is evaluated correctly', () => {
     expect(
       getErr(3, '4')
-        .errChain(v => Ok(1))
+        .errChain((v) => Ok(1))
         .okOrElse(100),
     ).toBe(1);
   });
 
   it('chain returning a Err returns a Err correctly', () => {
-    expect(getOk(3, '4').chain(v => Err('Error')).ok).toBe(false);
+    expect(getOk(3, '4').chain((v) => Err('Error')).ok).toBe(false);
   });
 
   it('errChain returning an Ok returns an Ok correctly', () => {
-    expect(getOk(3, '4').chain(v => Ok('Error')).ok).toBe(true);
+    expect(getOk(3, '4').chain((v) => Ok('Error')).ok).toBe(true);
   });
 
   it('Thens correctly on Ok', () => {
     expect(
       getOk(3, '4')
-        .then(v => 30)
-        .then(v => v.toString())
+        .then((v) => 30)
+        .then((v) => v.toString())
         .okOrElse('Bad'),
     ).toBe('30');
   });
@@ -61,8 +61,8 @@ describe('Result', () => {
   it('Thens correctly on Err', () => {
     expect(
       getErr(3, '4')
-        .then(v => 30)
-        .then(v => v.toString())
+        .then((v) => 30)
+        .then((v) => v.toString())
         .okOrElse('Bad'),
     ).toBe('Bad');
   });
@@ -70,8 +70,8 @@ describe('Result', () => {
   it('orThens correctly on Err', () => {
     expect(
       getErr(3, '4')
-        .errThen(v => 30)
-        .errThen(v => v.toString())
+        .errThen((v) => 30)
+        .errThen((v) => v.toString())
         .errOrElse('Bad'),
     ).toBe('30');
   });
@@ -79,8 +79,8 @@ describe('Result', () => {
   it('orThens correctly on Ok', () => {
     expect(
       getOk(3, '4')
-        .errThen(v => 30)
-        .errThen(v => v.toString())
+        .errThen((v) => 30)
+        .errThen((v) => v.toString())
         .errOrElse('Bad'),
     ).toBe('Bad');
   });
@@ -105,7 +105,7 @@ describe('Result', () => {
     const spyLeft = jest.fn();
     const spyRight = jest.fn();
     getErr(3, '4')
-      .then(v => 10)
+      .then((v) => 10)
       .resolve(spyRight, spyLeft);
     expect(spyLeft).toHaveBeenCalled();
     expect(spyLeft).toHaveBeenCalledWith('4');

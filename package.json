@@ -35,6 +35,7 @@
     "@types/node": "^16",
     "jest": "^27.5.1",
     "mocha": "^9.2.2",
+    "prettier": "^2.6.2",
     "rollup": "^2.70.1",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-typescript2": "^0.31.2",
