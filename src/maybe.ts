@@ -27,10 +27,7 @@ class MB<T> implements MaybeChain<T> {
   public value: T | undefined;
   public __isMaybe: true = true;
 
-  public chain<R>(
-    this: Maybe<T>,
-    fn: (v: NonNullable<T>) => Maybe<R>,
-  ): Maybe<R> {
+  public chain<R>(this: Maybe<T>, fn: (v: NonNullable<T>) => Maybe<R>): Maybe<R> {
     return this.something ? fn(this.value) : Nothing();
   }
 
@@ -45,10 +42,7 @@ class MB<T> implements MaybeChain<T> {
     return Maybe(this.value) as Flattened<T, Maybe<T>>;
   }
 
-  public then<F>(
-    this: Maybe<T>,
-    fn: (v: NonNullable<T>) => F | Maybe<F>,
-  ): Maybe<F> {
+  public then<F>(this: Maybe<T>, fn: (v: NonNullable<T>) => F | Maybe<F>): Maybe<F> {
     return this.chain((v) => Maybe(fn(v))).flatten() as Maybe<F>;
   }
 
@@ -73,10 +67,7 @@ export const Something = <T>(value: NonNullable<T>): Something<T> => {
   if (value === undefined || value === null) {
     throw new Error('Maybe.Just cannot be undefined or null');
   }
-  return Object.assign<
-    MaybeChain<T>,
-    { something: true; value: NonNullable<T> }
-  >(makeMaybe<T>(), {
+  return Object.assign<MaybeChain<T>, { something: true; value: NonNullable<T> }>(makeMaybe<T>(), {
     something: true,
     value: value,
   });
@@ -88,10 +79,7 @@ export const MaybeDictionary = <T>(dictionary: {
   return new Proxy<{ [key: string]: Maybe<T> }>(
     dictionary as unknown as { [key: string]: Maybe<T> },
     {
-      get: (
-        target: { [key: string]: Maybe<T> | T },
-        name: string,
-      ): Maybe<T> => {
+      get: (target: { [key: string]: Maybe<T> | T }, name: string): Maybe<T> => {
         const value = target[name];
         if (!value || !('__isMaybe' in value)) {
           const mb = Maybe(value);
