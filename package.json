@@ -30,12 +30,15 @@
   },
   "homepage": "https://github.com/sambacha/safe-result#readme",
   "devDependencies": {
+    "@types/jest": "^27.4.1",
     "@types/mocha": "^9.1.0",
     "@types/node": "^16.11.26",
+    "jest": "^27.5.1",
     "mocha": "^9.2.2",
     "rollup": "^2.70.1",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-typescript2": "^0.31.2",
+    "ts-jest": "^27.1.4",
     "typedoc": "^0.22.13",
     "typescript": "^4.6.2"
   },
