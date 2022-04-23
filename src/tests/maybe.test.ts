@@ -40,18 +40,18 @@ describe('Maybe', () => {
   });
 
   it('then returns another maybe', () => {
-    expect(Maybe(10).then(v => 'asd').something).toBeDefined();
-    expect(Maybe(undefined).then(v => 'asd').something).toBeDefined();
+    expect(Maybe(10).then((v) => 'asd').something).toBeDefined();
+    expect(Maybe(undefined).then((v) => 'asd').something).toBeDefined();
   });
 
   it('then returns nothing if undefined', () => {
-    expect(Maybe(undefined).then(v => 'asd').something).toEqual(false);
+    expect(Maybe(undefined).then((v) => 'asd').something).toEqual(false);
   });
 
   it('then returns new maybe if it has a value', () => {
     expect(
       Maybe('avalue')
-        .then(v => 'good')
+        .then((v) => 'good')
         .orElse('bad'),
     ).toEqual('good');
   });
@@ -59,7 +59,7 @@ describe('Maybe', () => {
   it('then returns single maybe if maybe returned', () => {
     expect(
       Maybe('foo')
-        .then(v => Maybe('newValue'))
+        .then((v) => Maybe('newValue'))
         .orElse('bad'),
     ).toEqual('newValue');
   });
@@ -67,7 +67,7 @@ describe('Maybe', () => {
   it('wraps undefined in Maybe correctly', () => {
     expect(
       Maybe('foo')
-        .then<string>(v => (undefined as unknown) as string)
+        .then<string>((v) => undefined as unknown as string)
         .orElse('defaultValue'),
     ).toEqual('defaultValue');
   });

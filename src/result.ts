@@ -19,7 +19,10 @@ class ResultInternal<R, E> implements Chainable<R> {
     this.value = options.value;
   }
 
-  public chain<T>(this: Result<R, E>, fn: (v: R) => Result<T, E>): Result<T, E> {
+  public chain<T>(
+    this: Result<R, E>,
+    fn: (v: R) => Result<T, E>,
+  ): Result<T, E> {
     if (this.ok) {
       return fn(this.value);
     }
@@ -41,7 +44,10 @@ class ResultInternal<R, E> implements Chainable<R> {
    * Works just like chain, but is only called if this Result is an error.
    * This returns a new Result with type Result<R, NewType>
    */
-  public errChain<T>(this: Result<R, E>, fn: (v: E) => Result<R, T>): Result<R, T> {
+  public errChain<T>(
+    this: Result<R, E>,
+    fn: (v: E) => Result<R, T>,
+  ): Result<R, T> {
     if (!this.ok) {
       return fn(this.value);
     }
@@ -52,7 +58,7 @@ class ResultInternal<R, E> implements Chainable<R> {
     if (this.value && this.value instanceof ResultInternal) {
       return this.value as Flattened<R, Result<R, E>>;
     }
-    return (this as unknown) as Flattened<R, Result<R, E>>;
+    return this as unknown as Flattened<R, Result<R, E>>;
   }
 
   /**
@@ -63,7 +69,10 @@ class ResultInternal<R, E> implements Chainable<R> {
    *
    * @param fnOk Function that takes in an ok value of type R and returns either F or Result<F,E>
    */
-  public then<F>(this: Result<R, E>, fnOk: (v: R) => F | Result<F, E>): Result<F, E> {
+  public then<F>(
+    this: Result<R, E>,
+    fnOk: (v: R) => F | Result<F, E>,
+  ): Result<F, E> {
     if (this.ok) {
       return Ok(fnOk(this.value)).flatten() as Result<F, E>;
     }
@@ -75,7 +84,10 @@ class ResultInternal<R, E> implements Chainable<R> {
    * Works just like then, but is only called if this Result is an error.
    * This returns a new Result with type Result<R, NewType>
    */
-  public errThen<F>(this: Result<R, E>, fnErr: (v: E) => F | Result<R, F>): Result<R, F> {
+  public errThen<F>(
+    this: Result<R, E>,
+    fnErr: (v: E) => F | Result<R, F>,
+  ): Result<R, F> {
     if (!this.ok) {
       return Err(fnErr(this.value)).flatten() as Result<R, F>;
     }
@@ -105,7 +117,11 @@ class ResultInternal<R, E> implements Chainable<R> {
    * @param fnOk Function that maps from Ok value(R) to new type T
    * @param fnErr Function that maps from Err value(E) to new type T
    */
-  public resolve<T>(this: Result<R, E>, fnOk: (v: R) => T, fnErr: (v: E) => T): T {
+  public resolve<T>(
+    this: Result<R, E>,
+    fnOk: (v: R) => T,
+    fnErr: (v: E) => T,
+  ): T {
     if (this.ok) {
       return fnOk(this.value);
     }
