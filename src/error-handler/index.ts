@@ -3,6 +3,14 @@
 * @source https://github.com/Zoltu/ethereum-browser-sdk
 */
 
+// @const genericResultError
+export const genericResultError = hideStackFrames(function genericResultError(message, errorProperties) {
+  // eslint-disable-next-line no-restricted-syntax
+  const err = new Error(message);
+  ObjectAssign(err, errorProperties);
+  return err;
+});
+
 // @class ErrorHandler
 export class ErrorHandler {
 	// TODO: surface the error in the UI somewhere, perhaps an error toast
