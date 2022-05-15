@@ -1,0 +1,1 @@
+export { verifySignedMessage } from "./index"
