@@ -1,1 +1,1 @@
-export * from './safeNamehash.ts'
+export * from './safeNamehash';
