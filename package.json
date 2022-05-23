@@ -3,16 +3,21 @@
   "version": "0.0.0",
   "description": "Safe Ethereum Results",
   "sideEffects": false,
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./umd/index.cjs",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "type": "module",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js",
+      "require": "./umd/index.cjs"
+    },
+    "./dist": {
+      "import": "./dist/index.js",
+      "require": "./umd/index.cjs"
     }
   },
-  "typings": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
