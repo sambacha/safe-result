@@ -36,8 +36,7 @@ const UserAddress = () => {
 };
 ```
 
-To run a transaction or sign a message, use the provider object returned by the
-hook for connected wallets.
+To run a transaction or sign a message, use the provider object returned by the hook for connected wallets.
 
 > This is a standard Ethers.js Provider.
 
@@ -53,44 +52,38 @@ const SignMessageButton = () => {
 }
 ```
 
-
 <pre>
-logDebug logTrace "This is how a Debug message looks like."
-logInfo logTrace "This is how an Info message looks like." 
-logNotice logTrace "This is how a Notice message looks like."
-logWarning logTrace "This is how a Warning message looks like."
-logError logTrace "This is how an Error message looks like."
-logCritical logTrace "This is how a Critical message looks like."
-logAlert logTrace "This is how an Alert message looks like."
+
+logDebug     logTrace "This is how a Debug message looks like."
+logInfo      logTrace "This is how an Info message looks like." 
+logNotice    logTrace "This is how a Notice message looks like."
+logWarning   logTrace "This is how a Warning message looks like."
+logError     logTrace "This is how an Error message looks like."
+logCritical  logTrace "This is how a Critical message looks like."
+logAlert     logTrace "This is how an Alert message looks like."
 logEmergency logTrace "This is how an Emergency message looks like."
-
-
-
-isIdle, 
-isLoading, 
-isSuccess,
-isError
-
-
 
 Future<Result<Ok, Error>>
 
-isPending
-isCancelled
-isResolved
+  isIdle, 
+  isLoading, 
+  isSuccess,
+  isError
+
+  isPending
+  isCancelled
+  isResolved
 
 resolver
 rejector
-
 
 .isLoading()
 .isDone()
 .isNotAsked()
 
-
 .isOk()
 .isError()
-
+</pre>
 
 ## Ethers Interface
 
