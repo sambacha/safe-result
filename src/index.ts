@@ -6,3 +6,4 @@ export * from './maybe';
 export * from './result';
 export * from './timeout';
 export * from './error-handler';
+export * from './transactions';
