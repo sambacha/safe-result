@@ -1,3 +1,7 @@
+// @type AssertEqual 
+export type AssertEqual<T, U> = [T, U] extends [U, T] ? true : never;
+
+
 // Assert
 export function number(n: number) {
   if (!Number.isSafeInteger(n) || n < 0) throw new Error(`Wrong positive integer: ${n}`);
