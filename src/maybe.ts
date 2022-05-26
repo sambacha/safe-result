@@ -1,6 +1,6 @@
+
 import type { Flattened } from './chainable';
 import type { Chainable } from './chainable';
-
 /**
 * @interface MaybeChain
 * @extends Chainable
