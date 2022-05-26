@@ -3,6 +3,18 @@
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 
 
+### regexFilters 
+
+```typescript
+/*eslint require-unicode-regexp: error */
+
+```
+
+The `u` flag disables the recovering logic Annex B defined. As a result, you can find errors early. This is similar to the strict mode.
+
+Therefore, the `u` flag lets us work better with **regular expressions**.
+
+
 ### safeSend React Wallet
 
 Example Connect / Disconnect button
