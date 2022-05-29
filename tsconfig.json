@@ -1,31 +1,26 @@
-{
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./build",
+  {
+    "compilerOptions": { 
     "importHelpers": true,
     "downlevelIteration": true,
-    "target": "es6",
-    "module": "commonjs",
     "jsx": "react",
-    "declaration": true,
-    "sourceMap": true,
+    "allowSyntheticDefaultImports": false,
+    "esModuleInterop": false,
+    "preserveValueImports": true,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true,
-    "forceConsistentCasingInFileNames": true,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
+    "allowUnreachableCode": false,
+    "strictFunctionTypes": true, 
+    "isolatedModules": true,
+    "declaration": true,
+    "sourceMap": false,
+    "module": "ES2020",
     "moduleResolution": "node",
-    "preserveConstEnums": true,
-    "esModuleInterop": true,
-    "lib": ["dom", "es2015.promise", "es2017"],
-    "types": [
-      "node",
-      "jest",
-      // ... your other types
-    ],
-    "resolveJsonModule": true
+    "target": "ES2020",
+    "rootDir": "src",
+    "outDir": "dist",
+    "lib": ["dom", "es2020"],
+    "types" : []
   },
-  "include": ["src"],
-  "exclude": ["src/tests/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/node_modules", "src/tests/**/*.ts", "src/tests/**/*.test.ts", "**/.*/"],
 }

@@ -1,5 +1,10 @@
-import type { Chainable, Flattened } from './chainable';
 
+import type { Flattened } from './chainable';
+import type { Chainable } from './chainable';
+/**
+* @interface MaybeChain
+* @extends Chainable
+*/
 interface MaybeChain<T> extends Chainable<T> {
   something?: boolean;
   __isMaybe: true;

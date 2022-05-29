@@ -1,24 +1,39 @@
 {
-  "name": "safe-guard",
-  "version": "1.0.0",
-  "description": "",
+  "name": "safe-results",
+  "version": "0.0.0",
+  "description": "Safe Ethereum Results",
   "sideEffects": false,
   "main": "./umd/index.cjs",
-  "module": "./es/index.js",
-  "typings": "./es/",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "type": "module",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
-      "import": "./es/index.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
       "require": "./umd/index.cjs"
     },
-    "./es": {
-      "import": "./es/index.js",
+    "./dist": {
+      "import": "./dist/index.js",
       "require": "./umd/index.cjs"
     }
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "compile": "tsc"
+    "build": "rollup -c rollup.config.js",
+    "compile": "npx tsc -b",
+    "baseline": "npx tsc --extendedDiagnostics",
+    "explain": "npx tsc --explainFiles > explanation.txt",
+    "trace": "npx tsc --traceResolution > resolution.txt",
+    "profile": "node --trace-ic ./node_modules/typescript/lib/tsc.js --generateCpuProfile profile.cpuprofile -p tsconfig.json",
+    "tracer": "mkdir -p tmp_folder/ && npx tsc -p ./tsconfig.json --generateTrace tmp_folder",
+    "test": "echo \"Fail: no test specified\" && exit 127",
+    "compile": "npx rollup -c rollup.config.js",
+    "fmt": "npx prettier --config .prettierrc.js --write src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -42,9 +57,11 @@
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
     "typedoc": "^0.22.13",
-    "typescript": "^4.6.2"
+    "tslib": "latest",
+    "typescript": "4.6.3"
   },
   "dependencies": {
+    "@ethersproject/hash": "^5.6.0",
     "@ethersproject/abstract-provider": "^5.6.0",
     "@ethersproject/abstract-signer": "^5.6.0",
     "@ethersproject/address": "^5.6.0",
