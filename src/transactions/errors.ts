@@ -5,10 +5,7 @@
  */
 import { Provider, TransactionReceipt } from "@ethersproject/providers"
 import { TransactionResponse } from "@ethersproject/abstract-provider"
-import { toUtf8String } from "ethers/lib/utils"
-
-//export type TransactionReceipt {
-//}
+import { toUtf8String } from "@ethersproject/strings";
 
 export type ErrorSignature = {
     r: string;
