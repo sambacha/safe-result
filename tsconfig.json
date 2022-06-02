@@ -9,7 +9,6 @@
     "jsx": "react",
     "declaration": true,
     "sourceMap": true,
-    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "forceConsistentCasingInFileNames": true,
@@ -18,14 +17,16 @@
     "moduleResolution": "node",
     "preserveConstEnums": true,
     "esModuleInterop": true,
-    "lib": ["dom", "es2015.promise", "es2017"],
-    "types": [
-      "node",
-      "jest",
-      // ... your other types
-    ],
+    "lib": ["dom", "ES2020"],
+    "types": [],
     "resolveJsonModule": true
   },
-  "include": ["src"],
-  "exclude": ["src/tests/**/*.ts"]
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/.*/",
+    "src/**/*.test.ts"
+  ]
 }
