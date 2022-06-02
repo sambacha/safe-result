@@ -1,19 +1,19 @@
 {
   "name": "safe-guard",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "sideEffects": false,
   "main": "./umd/index.cjs",
-  "module": "./es/index.js",
-  "typings": "./es/",
+  "module": "./es/index.mjs",
+  "typings": "./es/index.d.ts",
   "type": "module",
   "exports": {
     ".": {
-      "import": "./es/index.js",
+      "import": "./es/index.mjs",
       "require": "./umd/index.cjs"
     },
     "./es": {
-      "import": "./es/index.js",
+      "import": "./es/index.mjs",
       "require": "./umd/index.cjs"
     }
   },
@@ -45,6 +45,7 @@
     "typescript": "^4.6.2"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.6.0",
     "@ethersproject/abstract-provider": "^5.6.0",
     "@ethersproject/abstract-signer": "^5.6.0",
     "@ethersproject/address": "^5.6.0",
