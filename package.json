@@ -18,7 +18,16 @@
     }
   },
   "scripts": {
-    "compile": "tsc"
+    "compile": "tsc",
+    "build": "rollup -c rollup.config.js",
+    "baseline": "npx tsc --extendedDiagnostics",
+    "explain": "npx tsc --explainFiles > explanation.txt",
+    "trace": "npx tsc --traceResolution > resolution.txt",
+    "profile": "node --trace-ic ./node_modules/typescript/lib/tsc.js --generateCpuProfile profile.cpuprofile -p tsconfig.json",
+    "tracer": "mkdir -p tmp_folder/ && npx tsc -p ./tsconfig.json --generateTrace tmp_folder",
+    "test": "echo \"Fail: no test specified\" && exit 127",
+    "compile": "npx rollup -c rollup.config.js",
+    "fmt": "npx prettier --config .prettierrc.js --write src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -42,7 +51,7 @@
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
     "typedoc": "^0.22.13",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.4"
   },
   "dependencies": {
     "@ethersproject/providers": "^5.6.0",
