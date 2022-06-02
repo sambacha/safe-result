@@ -6,6 +6,8 @@
  */
 
 export const SAFE_MAX = 4_294_967_295;
+
+const MAX = Number.MAX_SAFE_INTEGER;
 let idCounter = Math.floor(Math.random() * MAX);
 
 /**
