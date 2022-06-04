@@ -22,6 +22,20 @@ export const extractHostname = (url: string): string => {
   return hostname;
 };
 
+// @class ValidationError
+export class ValidationError extends Error {
+    constructor(message?: string) {
+        super(message);
+
+        // Maintains proper stack trace for where our error was thrown (only available on V8)
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, ValidationError);
+        }
+
+        this.name = 'ValidationError';
+    }
+}
+
 export const getRevertReasonFromError = (error: any): string => {
   return (
     error.message?.split('reason="')[1]?.split('", code')[0] ??
