@@ -7,13 +7,20 @@
 * @license MIT
 */
 
-export { ErrorCode, isError,isCallException, /** isContractCallException */ } from "./errors.js";
+// export { ErrorCode, isError,isCallException, /** isContractCallException */ } from "./errors.js";
 
+export * from "./errors.js";
 export { Logger } from "./logger.js";
+export type {
+  BytesLike,
+  BigNumberish,
+  ErrorInfo,
+  Numeric
+} from "./logger.js";
 
 /** 
 * @export type Errors
-*/
+
 export type {
   EthersError, CodedEthersError,
   BadDataError,
@@ -35,13 +42,7 @@ export type {
   UnknownError,
   UnpredictableGasLimitError,
   UnsupportedOperationError, } from "./errors.js";
-
+*/
 /** 
 * @export type Logger
 */
-export type {
-  BytesLike,
-  BigNumberish,
-  ErrorInfo,
-  Numeric
-} from "./logger.js";
