@@ -11,12 +11,7 @@ interface BNLike {
 }
 
 // @type NumberLike
-export type NumberLike =
-  | number
-  | bigint
-  | string
-  | EthersBigNumberLike
-  | BNLike;
+export type NumberLike = number | bigint | string | EthersBigNumberLike | BNLike;
 
 // @type BlockTag
-export type BlockTag = "latest" | "earliest" | "pending";
+export type BlockTag = 'latest' | 'earliest' | 'pending';

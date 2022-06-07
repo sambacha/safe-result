@@ -1,1 +1,1 @@
-export * from './safeBlockInThePast'
+export * from './safeBlockInThePast';

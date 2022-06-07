@@ -31,7 +31,7 @@ export class TimeoutMap<K, V> extends Map<K, V> {
         if (this.onTimeout) {
           this.onTimeout(key, value as V);
         }
-      }, timeout)
+      }, timeout),
     );
   }
 

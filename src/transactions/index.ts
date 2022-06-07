@@ -1,20 +1,19 @@
 /**
-* @module Transactions
-* @ee {@link docs.securerpc.com}
-* @version 0.0.0
-*/
+ * @module Transactions
+ * @ee {@link docs.securerpc.com}
+ * @version 0.0.0
+ */
 
-export {
-  ErrorCode, isError,isCallException,
-//  isContractCallException
-} from "./errors";
+export { ErrorCode, isError, isCallException } from //  isContractCallException
+'./errors';
 
-export { Logger } from "./logger";
+export { Logger } from './logger';
 
 // @note Types
 
 export type {
-  EthersError, CodedEthersError,
+  EthersError,
+  CodedEthersError,
   BadDataError,
   BufferOverrunError,
   CallExceptionError,
@@ -27,18 +26,15 @@ export type {
   NumericFaultError,
   OffchainFaultError,
   ReplacementUnderpricedError,
-  ServerError, TransactionReplacedError,
+  ServerError,
+  TransactionReplacedError,
   TimeoutError,
   UnconfiguredNameError,
   UnexpectedArgumentError,
   UnknownError,
   UnpredictableGasLimitError,
-  UnsupportedOperationError, } from "./errors";
+  UnsupportedOperationError,
+} from './errors';
 
 // @export type Logger
-export type {
-  BytesLike,
-  BigNumberish,
-  ErrorInfo,
-  Numeric
-} from "./logger";
+export type { BytesLike, BigNumberish, ErrorInfo, Numeric } from './logger';
