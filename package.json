@@ -33,6 +33,9 @@
     "@types/jest": "^27.4.1",
     "@types/mocha": "^9.1.0",
     "@types/node": "^16",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "eslint": "^8.16.0",
     "jest": "^27.5.1",
     "mocha": "^9.2.2",
     "prettier": "^2.6.2",
@@ -42,13 +45,16 @@
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
     "typedoc": "^0.22.13",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "typescript-eslint-language-service": "^5.0.0"
   },
   "dependencies": {
     "@ethersproject/abstract-provider": "^5.6.0",
     "@ethersproject/abstract-signer": "^5.6.0",
     "@ethersproject/address": "^5.6.0",
     "@ethersproject/properties": "^5.6.0",
+    "@ethersproject/providers": "^5.6.8",
+    "ethers": "^5.6.8",
     "tiny-invariant": "^1.2.0",
     "tiny-warning": "^1.0.3"
   }

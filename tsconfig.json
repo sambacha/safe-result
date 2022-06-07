@@ -19,6 +19,11 @@
     "preserveConstEnums": true,
     "esModuleInterop": true,
     "lib": ["dom", "es2015.promise", "es2017"],
+    "plugins": [
+      {
+        "name": "typescript-eslint-language-service"
+      }
+    ],
     "types": [
       "node",
       "jest",
