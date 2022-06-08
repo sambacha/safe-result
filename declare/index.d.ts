@@ -17,6 +17,8 @@ declare global {
     ethereum?: {
       send: unknown;
       isMetaMask?: true;
+      isCoinBase?: true,
+      isTally?: true,
       enable: () => Promise<string[]>;
       on?: (...args: any[]) => void;
       removeListener?: (...args: any[]) => void;
