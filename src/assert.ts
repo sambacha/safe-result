@@ -1,20 +1,19 @@
 // @type AssertEqual 
 export type AssertEqual<T, U> = [T, U] extends [U, T] ? true : never;
 
-
 // Assert
 export function number(n: number) {
-  if (!Number.isSafeInteger(n) || n < 0) throw new Error(`Wrong positive integer: ${n}`);
+  if (!Number.isSafeInteger(n) || n < 0) throw new Error(`#[Assert]: Wrong positive integer: ${n}`);
 }
 
 export function bool(b: boolean) {
-  if (typeof b !== 'boolean') throw new Error(`Expected boolean, not ${b}`);
+  if (typeof b !== 'boolean') throw new Error(`#[Assert]: Expected boolean, not ${b}`);
 }
 
 export function bytes(bytes: Uint8Array, ...lengths: number[]) {
-  if (!(bytes instanceof Uint8Array)) throw new TypeError('Expected Uint8Array');
+  if (!(bytes instanceof Uint8Array)) throw new TypeError('#[Assert]: Type Expected Uint8Array');
   if (lengths.length > 0 && !lengths.includes(bytes.length))
-    throw new TypeError(`Expected Uint8Array of length ${lengths}, not of length=${bytes.length}`);
+    throw new TypeError(`#[Assert]: Type Expected Uint8Array of length ${lengths}, not of length=${bytes.length}`);
 }
 
 type Hash = {
@@ -25,7 +24,7 @@ type Hash = {
 };
 export function hash(hash: Hash) {
   if (typeof hash !== 'function' || typeof hash.create !== 'function')
-    throw new Error('Hash should be wrapped by utils.wrapConstructor');
+    throw new Error('#[Assert]: Hash should be wrapped by utils.wrapConstructor');
   number(hash.outputLen);
   number(hash.blockLen);
 }
@@ -38,8 +37,12 @@ export function output(out: any, instance: any) {
   bytes(out);
   const min = instance.outputLen;
   if (out.length < min) {
-    throw new Error(`digestInto() expects output buffer of length at least ${min}`);
+    throw new Error(`#[Assert]: digestInto() expects output buffer of length at least ${min}`);
   }
+}
+
+export function assertNever(x: never): never {
+    throw new Error('#[Assert]: Unexpected value. type never violation');
 }
 
 const assert = {
@@ -49,6 +52,8 @@ const assert = {
   hash,
   exists,
   output,
+  assertNever,
 };
 
+/** @export assert */
 export default assert;
