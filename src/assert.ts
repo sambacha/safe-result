@@ -45,6 +45,18 @@ export function assertNever(x: never): never {
     throw new Error('#[Assert]: Unexpected value. type never violation');
 }
 
+/** 
+* @export ∀
+* @summary Assertion using typescripts `asserts` 
+*/
+export function ∀(value: boolean, message?: string): asserts value;
+export function ∀<T>(value: T | null | undefined, message?: string): asserts value is T;
+export function ∀(value: any, message?: string) {
+  if (value === false || value === null || typeof value === "undefined") {
+    throw new Error(message || "∀ssertion failed")
+  }
+}
+
 const assert = {
   number,
   bool,
@@ -53,7 +65,8 @@ const assert = {
   exists,
   output,
   assertNever,
+  ∀,
 };
 
-/** @export assert */
+
 export default assert;
