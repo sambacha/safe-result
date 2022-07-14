@@ -11,6 +11,17 @@
 
 import * as console from 'node:console';
 
+interface ErrorConstructor<T extends any[]> {
+  new (...args: T): Error;
+}
+
+export function ensure<T extends any[]>(condition: boolean, ErrorToThrow: ErrorConstructor<T>, ...errorArgs: T):
+  asserts condition {
+  if (!condition) {
+    throw new ErrorToThrow(...errorArgs);
+  }
+}
+
 export enum ProviderRpcErrorCode {
   ACCOUNT_ACCESS_ALREADY_REQUESTED = -32002,
   DOES_NOT_EXIST                   = -32601,
