@@ -2,6 +2,45 @@
 
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 
+## Overview
+
+`safe-result` is a transaction library focused on ethereum transaction handling 
+
+## Assertions
+
+Assert and Asserts
+
+### Assert
+
+```typescript
+types assert = {
+  number,
+  bool,
+  bytes,
+  hash,
+  exists,
+  output,
+  assertNever,
+  ∀,
+};
+```
+
+### ∀ Asserts
+
+```typescript
+
+/** 
+* @export ∀
+* @summary Assertion using typescripts `asserts` 
+*/
+export function ∀(value: boolean, message?: string): asserts value;
+export function ∀<T>(value: T | null | undefined, message?: string): asserts value is T;
+export function ∀(value: any, message?: string) {
+  if (value === false || value === null || typeof value === "undefined") {
+    throw new Error(message || "∀ssertion failed")
+  }
+}
+```
 
 ### regexFilters 
 
