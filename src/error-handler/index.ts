@@ -1,11 +1,13 @@
 /**
  * Subsystem for building JSON Rpc Providers.
  *
- * @remarks
+ * @packageDocumentation
  * The `error-handler` defines the {@link ProviderRpcErrorCode} enum and {@link ErrorHandler} class,
  * which are used to build JSON Rpc Providers.
- *
- * @packageDocumentation
+ * 
+ * @since v0.0.3
+ * 
+ * @see {@link https://kb.manifoldfinance.com/lib/safe-result}
  */
 
 
@@ -79,41 +81,43 @@ export const errorCodes: ProviderRpcErrorCode = {
 
 export const errorValues = {
   '-32700': {
-    'PARSE_ERROR': {
+    PARSE_ERROR: {
     standard: 'JSON RPC 2.0',
-    message: 'Invalid JSON was received by the server. An error occurred on the server while parsing the JSON text.',
+    message: 'Invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. Check content encoding to ensure well formed JSON',
   },
 },
   '-32600': {
-    'INVALID_REQUEST': {
+    INVALID_REQUEST: {
     standard: 'JSON RPC 2.0',
-    message: 'The JSON sent is not a valid Request object.',
+    message: 'The JSON sent is not a valid Request object. Ensure well formed JSON object format',
     },
   },
   '-32601': {
-    'METHOD_NOT_FOUND': {
+    METHOD_NOT_FOUND: {
     standard: 'JSON RPC 2.0',
-    message: 'The method does not exist / is not available.',
+    message: 'The method does not exist / is not available. Ensure method is exposed publicly or that your request is authenticated',
     },
   },
   '-32602': {
-    'INVALID_PARAMS': {
+    INVALID_PARAMS: {
     standard: 'JSON RPC 2.0',
-    message: 'Invalid method parameter(s).',
+    message: 'Invalid method parameter(s). Recognized method, but request is missing required params',
+    /** Invalid transaction envelope type: specified type \"0x02\" but including maxFeePerGas and maxPriorityFeePerGas requires type: \"0x2\"", data: None })) */ 
     },
   },
   '-32603': {
     'INTERNAL_ERROR': {
     standard: 'JSON RPC 2.0',
-    message: 'Internal JSON-RPC error.',
+    message: 'Internal JSON-RPC error. Cannot read properties of undef',
+    /** Cannot read properties of undefined (reading 'message'), data: Some(Object({"originalError": Object({})})) })) */
     },
   },
   // eth_getStorageAt [ "0x<address>", { "blockHash": "0x<non-canonical-block-hash>", "requireCanonical": true } -> raise block-not-canonical error
   // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1474.md#:~:text=If%20the%20block%20is%20not%20found,found%20rather%20than%20block%2Dnot%2Dcanonical.
   '-32000': {
-    'SERVER_ERROR': {
+    SERVER_ERROR: {
     standard: 'EIP-1474, EIP-1898',
-    message: '🔴 Server error: Invalid input, unable to locate canonical block',
+    message: 'Server error: Invalid input, unable to locate canonical block',
     },
   },
   // eth_getStorageAt [ "0x<address>", { "blockHash": "0x<non-existent-block-hash>" } -> raise block-not-found error
@@ -122,19 +126,19 @@ export const errorValues = {
   // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1474.md#:~:text=If%20the%20block%20is%20not%20found,found%20rather%20than%20block%2Dnot%2Dcanonical.
   '-32001': {
     standard: 'EIP-1474, EIP-1898',
-    message: '🔴 Server error: Requested resource, block,  not found.',
+    message: 'Server error: Requested resource, blockNumber, NOT found.',
   },
   '-32002': {
     standard: 'EIP-1474',
-    message: '🔴 Resource unavailable.',
+    message: '🔻 Resource unavailable.',
   },
   '-32003': {
     standard: 'EIP-1474',
-    message: '🔴 Transaction rejected.',
+    message: '🔻 Transaction rejected.',
   },
   '-32004': {
     standard: 'EIP-1474',
-    message: '🔴 Method not supported.',
+    message: '🔻 Method not supported.',
   },
   '-32005': {
     standard: 'EIP-1474',
@@ -145,25 +149,25 @@ export const errorValues = {
     message: '🔻 User rejected the request.',
   },
   '4100': {
-    "UNAUTHORIZED": {
+    UNAUTHORIZED: {
     standard: 'EIP-1193',
     message: '🔻 The requested account and/or method has not been authorized by the user.',
   },
 },
   '4200': {
-    "UNSUPPORTED_METHOD": {
+    UNSUPPORTED_METHOD: {
     standard: 'EIP-1193',
     message: '🔻 The requested method is not supported by this Ethereum provider.',
   },
 },
   '4900': {
-    "DISCONNECTED":{
+    DISCONNECTED:{
     standard: 'EIP-1193',
     message: '🔺 The provider is disconnected from all chains.',
   },
 },
   '4901': {
-    "CHAIN_DISCONNECTED": {
+    CHAIN_DISCONNECTED: {
     standard: 'EIP-1193',
     message: '🔺 The provider is disconnected from the specified chain.',
     },
