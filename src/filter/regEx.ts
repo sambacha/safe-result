@@ -11,6 +11,25 @@
  * @license MIT Copyright (c) 2021 Nick Addison
  */
 
+
+interface SymbolConstructor {
+    /**
+     * A regular expression method that matches the regular expression against a string. Called
+     * by the String.prototype.matchAll method.
+     */
+    readonly matchAll: unique symbol;
+}
+
+interface RegExp {
+    /**
+     * Matches a string with this regular expression, and returns an iterable of matches
+     * containing the results of that search.
+     * @param string A string to search within.
+     */
+    [Symbol.matchAll](str: string): IterableIterator<RegExpMatchArray>;
+}
+
+
 /*eslint require-unicode-regexp: error */
 export const ethereumAddress = /^0x([A-Fa-f0-9]{40})$/;
 // @NOTE this is also equivalent: ^0x([0-9a-z]{2})*$
