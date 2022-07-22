@@ -1,0 +1,33 @@
+errorValues        , ErrorCode, message
+invalidInput       , -32_000  , 
+resourceNotFound   , -32_001  , 
+resourceUnavailable, -32_002  , ACCOUNT_ACCESS_ALREADY_REQUESTED
+transactionRejected, -32_003  , 
+methodNotSupported , -32_004  , 
+limitExceeded      , -32_005  , 
+parse              , -32_700  , 
+invalidRequest     , -32_600  , 
+methodNotFound     , -32_601  , 
+invalidParams      , -32_602  , DOES_NOT_EXIST
+internal           , -32_603  , 
+userRejectedRequest, 4001     , 
+unauthorized       , 4100     , 
+unsupportedMethod  , 4200     , 
+disconnected       , 4900     , 
+chainDisconnected  , 4901     , 
+invalidInput       , -32_000  , 
+resourceNotFound   , -32_001  , 
+resourceUnavailable, -32_002  , 
+transactionRejected, -32_003  , 
+methodNotSupported , -32_004  , 
+limitExceeded      , -32_005  , LIMIT_EXCEEDED
+parse              , -32_700  , 
+invalidRequest     , -32_600  , 
+methodNotFound     , -32_601  , METHOD_NOTFOUND
+invalidParams      , -32_602  , INVALID_PARAMS
+internal           , -32_603  , INTERNAL
+userRejectedRequest, 4001     , USER_REJECTEDREQUEST
+unauthorized       , 4100     , UNAUTHORIZED
+unsupportedMethod  , 4200     , UNSUPPORTEDMETHOD
+disconnected       , 4900     , 
+chainDisconnected  , 4901     , 
