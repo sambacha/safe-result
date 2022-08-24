@@ -1,7 +1,7 @@
 {
-  "name": "safe-guard",
-  "version": "0.0.0",
-  "description": "",
+  "name": "safe-result",
+  "version": "0.0.1",
+  "description": "ensure transaction results are safe before sending",
   "sideEffects": false,
   "main": "./umd/index.cjs",
   "module": "./es/index.mjs",
@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "compile": "tsc",
+    "compile": "npx tsc -b",
     "build": "rollup -c rollup.config.js",
     "baseline": "npx tsc --extendedDiagnostics",
     "explain": "npx tsc --explainFiles > explanation.txt",
@@ -26,14 +26,13 @@
     "profile": "node --trace-ic ./node_modules/typescript/lib/tsc.js --generateCpuProfile profile.cpuprofile -p tsconfig.json",
     "tracer": "mkdir -p tmp_folder/ && npx tsc -p ./tsconfig.json --generateTrace tmp_folder",
     "test": "echo \"Fail: no test specified\" && exit 127",
-    "compile": "npx rollup -c rollup.config.js",
     "fmt": "npx prettier --config .prettierrc.js --write src/**/*.ts"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sambacha/safe-result.git"
   },
-  "keywords": [],
+  "keywords": ["web3", "ethereum", "safe result", "well typed", "solidity", "web3 react", "wagmi"],
   "bugs": {
     "url": "https://github.com/sambacha/safe-result/issues"
   },
