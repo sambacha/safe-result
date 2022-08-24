@@ -57,6 +57,13 @@ export function ∀(value: any, message?: string) {
   }
 }
 
+
+
+export function stateAssert(value: unknown, message: string | Error): asserts value {
+  if (!value) throw message instanceof Error ? message : new Error(message);
+}
+
+
 const assert = {
   number,
   bool,
@@ -66,6 +73,7 @@ const assert = {
   output,
   assertNever,
   ∀,
+  stateAssert,
 };
 
 
